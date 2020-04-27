@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: EC2 hash policy template
+Parameters:
+  awsS3ManagedPolicy:
+    Type: String
+    Description: Name of policy to attach to hashcat role for access to S3
+    Default: arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+Resources:
+  HashS3Role:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -  Effect: "Allow"
+             Principal:
+               Service:
+                 - "ec2.amazonaws.com"
+             Action: 
+               - "sts:AssumeRole"
+      Path: "/"
+      # ManagedPolicyArns:
+      #   - !Ref awsS3ManagedPolicy
+      Policies:
+        -
+          PolicyName: "HashS3Policy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              -
+                Effect: "Allow"
+                Action: "s3:*"
+                Resource:
+                  - "arn:aws:s3:::cfrs767-hash"
+                  - "arn:aws:s3:::cfrs767-hash/*" 
+  HashS3Profile:
+    Type: "AWS::IAM::InstanceProfile"
+    Properties:
+      Path: "/"
+      Roles:
+        - !Ref HashS3Role
