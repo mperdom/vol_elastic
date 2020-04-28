@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: A sample EC2 template
+Description: EC2 template for Elastic/Kibana
 Parameters:
   KeyName:
     Description: "Name of an existing EC2 KeyPair to enable SSH access to the instance"
@@ -15,6 +15,7 @@ Parameters:
     - t2.nano
     - t2.small
     - t2.medium
+    - m4.large
   SSHLocation:
     Description: "The IP address range that can be used to SSH to the EC2 instances"
     Type: "String"
@@ -24,43 +25,43 @@ Parameters:
     AllowedPattern: "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})"
     ConstraintDescription: "must be a valid IP CIDR range of the form x.x.x.x/x"
 Resources:
-  # HashS3Role:
-  #   Type: "AWS::IAM::Role"
-  #   Properties:
-  #     AssumeRolePolicyDocument:
-  #       Version: "2012-10-17"
-  #       Statement:
-  #         -  Effect: "Allow"
-  #            Principal:
-  #              Service:
-  #                - "ec2.amazonaws.com"
-  #            Action: 
-  #              - "sts:AssumeRole"
-  #     Path: "/"
-  #     # ManagedPolicyArns:
-  #     #   - !Ref awsS3ManagedPolicy
-  #     Policies:
-  #       -
-  #         PolicyName: "HashS3Policy"
-  #         PolicyDocument:
-  #           Version: "2012-10-17"
-  #           Statement:
-  #             -
-  #               Effect: "Allow"
-  #               Action: "s3:*"
-  #               Resource:
-  #                 - "arn:aws:s3:::cfrs767-hash"
-  #                 - "arn:aws:s3:::cfrs767-hash/*" 
-  # HashS3Profile:
-  #   Type: "AWS::IAM::InstanceProfile"
-  #   Properties:
-  #     Path: "/"
-  #     Roles:
-  #       - !Ref HashS3Role
-  HashInstance: #An inline comment
+  HashS3Role:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -  Effect: "Allow"
+             Principal:
+               Service:
+                 - "ec2.amazonaws.com"
+             Action: 
+               - "sts:AssumeRole"
+      Path: "/"
+      # ManagedPolicyArns:
+      #   - !Ref awsS3ManagedPolicy
+      Policies:
+        -
+          PolicyName: "HashS3Policy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              -
+                Effect: "Allow"
+                Action: "s3:*"
+                Resource:
+                  - "arn:aws:s3:::cfrs767-hash"
+                  - "arn:aws:s3:::cfrs767-hash/*" 
+  HashS3Profile:
+    Type: "AWS::IAM::InstanceProfile"
+    Properties:
+      Path: "/"
+      Roles:
+        - !Ref HashS3Role
+  HashInstance:
     Type: "AWS::EC2::Instance"
     Properties: 
-      ImageId: "ami-00eb20669e0990cb4" #Another comment -- This is an Amazon Linux AMI
+      ImageId: "ami-0915e09cc7ceee3ab" #This is an Amazon Linux AMI
       InstanceType: t2.micro
       IamInstanceProfile: !Ref HashS3Profile
       KeyName: !Ref KeyName
