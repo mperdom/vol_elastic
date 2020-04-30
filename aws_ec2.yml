@@ -77,9 +77,9 @@ Resources:
         Fn::Base64:
           !Sub |
             #!/bin/bash -ex
-            sudo yum install java-1.8.0-openjdk -y
-            sudo yum install git -y
-            sudo pip install elasticsearch
+            yum install java-1.8.0-openjdk -y
+            yum install git -y
+            pip install elasticsearch
             aws s3 cp s3://cfrs772-elk/elasticsearch-7.6.2-linux-x86_64.tar.gz /home/ec2-user
             aws s3 cp s3://cfrs772-elk/kibana-7.6.2-linux-x86_64.tar.gz /home/ec2-user
             aws s3 cp s3://cfrs772-elk/vm.vmem /home/ec2-user
@@ -87,15 +87,14 @@ Resources:
             git clone https://github.com/dolosdevelopment/volatility.git
             chmod 777 /home/ec2-user/volatility/vol.py
             mv /home/ec2-user/vm.vmem /home/ec2-user/volatility/
-            sudo chown ec2-user:ec2-user elasticsearch-oss-7.6.2-linux-x86_64.tar.gz
-            sudo chown ec2-user:ec2-user kibana-7.6.2-linux-x86_64.tar.gz
-            tar -xzf elasticsearch-oss-7.6.2-linux-x86_64.tar.gz
+            chown -R ec2-user:ec2-user volatility
+            tar -xzf elasticsearch-7.6.2-linux-x86_64.tar.gz
             tar -xzf kibana-7.6.2-linux-x86_64.tar.gz
+            chown -R ec2-user:ec2-user /home/ec2-user/elasticsearch-7.6.2 /home/ec2-user/kibana-7.6.2-linux-x86_64
+            ln -sfn /usr/lib/jvm/jre-1.8.0-openjdk.x86_64 /etc/alternatives/jre
             export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
-            cd elasticsearch-7.6.2/
-            ./bin/elasticsearch
-            cd kibana-7.6.2-linux-86_64/
-            ./bin/kibana
+            /home/ec2-user/elasticsearch-7.6.2/bin/elasticsearch -d
+            #/home/ec2-user/kibana-7.6.2-linux-86_64/bin/kibana
 
   InstanceSecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
