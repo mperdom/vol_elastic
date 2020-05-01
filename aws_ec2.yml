@@ -9,7 +9,7 @@ Parameters:
   InstanceType: 
     Description: "Webserver EC2 instance type"
     Type: String
-    Default: t2.micro
+    Default: m4.large
     AllowedValues:
     - t2.micro
     - t2.nano
@@ -92,8 +92,17 @@ Resources:
             tar -xzf kibana-7.6.2-linux-x86_64.tar.gz
             chown -R ec2-user:ec2-user /home/ec2-user/elasticsearch-7.6.2 /home/ec2-user/kibana-7.6.2-linux-x86_64
             ln -sfn /usr/lib/jvm/jre-1.8.0-openjdk.x86_64 /etc/alternatives/jre
+            chown -R ec2-user:ec2-user /home/ec2-user/elasticsearch-7.6.2/config/
             export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
-            /home/ec2-user/elasticsearch-7.6.2/bin/elasticsearch -d
+            wget -O /home/ec2-user/elasticsearch-7.6.2-x86_64.rpm https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-x86_64.rpm
+            wget -O /home/ec2-user/kibana-7.6.2-x86_64.rpm https://artifacts.elastic.co/downloads/kibana/kibana-7.6.2-x86_64.rpm
+            rpm --install elasticsearch-7.6.2-x86_64.rpm
+            rpm --install kibana-7.6.2-x86_64.rpm
+            chkconfig --add elasticsearch
+            chkconfig --add kibana
+            service elasticsearch start
+            service kibana start
+            #su ec2-user /home/ec2-user/elasticsearch-7.6.2/bin/elasticsearch -d
             #/home/ec2-user/kibana-7.6.2-linux-86_64/bin/kibana
 
   InstanceSecurityGroup:
