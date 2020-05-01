@@ -2,7 +2,7 @@
 Volatility integrated with ElasticSearch(ES) and Kibana
 
 ## Overview
-Volatilty gives users the ability to ask for their output in a specific format such as text,json,html, etc. This unified output concept allows for users to run plugins and output the results how they see fit. Examples of existing renderers and their outputs can be found on their volatility wiki found [here]https://github.com/volatilityfoundation/volatility/wiki/Unified-Output)
+Volatilty gives users the ability to ask for their output in a specific format such as text,json,html, etc. This unified output concept allows for users to run plugins and output the results how they see fit. Examples of existing renderers and their outputs can be found on their volatility wiki found [here](https://github.com/volatilityfoundation/volatility/wiki/Unified-Output)
 
 The aim of this project was to create an ElasticSearch renderer that can format the output to an ES format and then automatically export the results to ES. I then decided to create a Kibana dashboard to better visualize the results exported in a dashboard in Kibana. 
 
