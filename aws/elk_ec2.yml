@@ -100,6 +100,9 @@ Resources:
             chkconfig --add kibana
             service elasticsearch start
             service kibana start
+            # Create a file to easily copy and paste example curl commands
+            echo 'curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/home/ec2-user/cfrs772-test-demo.ndjson' > example_commands
+            echo 'volatility/vol.py -f "/home/ec2-user/volatility/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree' >> example_commands
             ### I found that rpm is easier and more reliable for automation, so commented out tar method ###
             #aws s3 cp s3://cfrs772-elk/elasticsearch-7.6.2-linux-x86_64.tar.gz /home/ec2-user
             #aws s3 cp s3://cfrs772-elk/kibana-7.6.2-linux-x86_64.tar.gz /home/ec2-user
