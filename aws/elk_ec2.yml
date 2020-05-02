@@ -28,10 +28,7 @@ Parameters:
     Description: "Name of the relevant S3 bucket"
     Type: "String"
     Default: cfrs772-elk
-  MemoryFile:
-    Description: "Full name of memory file"
-    Type: "String"
-    Default: vm.vmem
+    
 #start of actual resource creations
 Resources:
   ElkS3Role:
@@ -87,7 +84,7 @@ Resources:
             yum install java-1.8.0-openjdk -y
             yum install git -y
             pip install elasticsearch
-            aws s3 cp s3://${S3BucketName}/${MemoryFile} /home/ec2-user
+            aws s3 cp s3://${S3BucketName}/ /home/ec2-user --recursive
             cd /home/ec2-user
             git clone https://github.com/dolosdevelopment/volatility.git
             chmod 777 /home/ec2-user/volatility/vol.py
@@ -115,7 +112,6 @@ Resources:
           - {
               #Perform the FindInMap and Ref lookups for variables used in userdata script
               S3BucketName: !Ref S3BucketName,
-              MemoryFile: !Ref MemoryFile
             }
 
   InstanceSecurityGroup:

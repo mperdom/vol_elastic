@@ -27,13 +27,12 @@ Under the aws folder exists an `elk_ec2.yml` file that provisions the AWS EC2 in
 - Upload a template file: Allows the user to choose their version of `elk_ec2.yml` file from their local machine.
 
 For stack details, define the stack name however you choose :) 
-Next, there are five parameters required to fill in, each serve a purpose to let the user define their inputs.
+Next, there are four parameters required to fill in, each serve a purpose to let the user define their inputs.
 
 - KeyName: This is the only component that the user must create on their own for their specific AWS account. The user must first define a EC2 keypair, and use that name for this parameter. This is the key that will be used to ssh to your instance.
 - InstanceType: This will define the instance type that you wish to deploy. The default is the minimum requirement to run ES/Kibana.
 - SSHLocation: This defines the range of ip addresses that can ssh to the EC2 instance. Default is all ip addresses.
 - S3BucketName: The name of the S3 bucket that the EC2 instance can upload/download files to/from.
-- MemoryFile: The name of any memory file that you wish to download automatically to the EC2 instance upon startup.
 
 Next, define tag names for your stack if you'd like, or skip onto the next step.
 
