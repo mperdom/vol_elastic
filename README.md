@@ -12,7 +12,7 @@ Huge credit to Dolos Development for supplying the base of the code for the Vola
 Dolos Development repo can be found here: https://github.com/dolosdevelopment/volatility
 
 ### AWS Automation
-This documentation will assume that the user has created their own AWS account.
+This section will assume that the user has created their own AWS account.
 
 #### Create EC2 KeyPair
 Before beginning AWS deployment, a user must first create an EC2 keypair to ssh to any EC2 instance. Refer to AWS documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
