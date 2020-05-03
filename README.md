@@ -4,7 +4,7 @@ Volatility integrated with ElasticSearch(ES) and Kibana
 ## Overview
 Volatilty gives users the ability to ask for their output in a specific format such as text,json,html, etc. This unified output concept allows for users to run plugins and output the results how they see fit. Examples of existing renderers and their outputs can be found on their volatility wiki found [here](https://github.com/volatilityfoundation/volatility/wiki/Unified-Output).
 
-The aim of this project was to create an ElasticSearch renderer that can format the output to an ES format and then automatically export the results to ES. I then decided to create a Kibana dashboard to better visualize the results exported in a dashboard in Kibana. 
+The aim of this project was to create an ElasticSearch renderer that can format volatility output to an ES format and then automatically export the results to ES. I then decided to create a Kibana dashboard to better visualize the results exported in a dashboard in Kibana. 
 
 After being able to run this locally, I decided to automate the process of building up an Elastic stack leveraging AWS. I did this to test the renderer in a linux environment, and also to make it so that anyone can leverage the automation and run this renderer with minimal effort.
 
@@ -21,12 +21,12 @@ Before beginning AWS deployment, a user must first create an EC2 keypair to ssh 
 Create an S3 bucket by following AWS documentation [here](https://docs.aws.amazon.com/quickstarts/latest/s3backup/step-1-create-bucket.html). This will simply serve the purpose of storing your memory files, I could have removed the need for a S3 bucket, but it's a nice resource to have and include, so I left it in as a requirement. One can simply choose to remove the dependency if they so choose.
 
 #### Deploying - EC2 Instance
-Under the aws folder exists an `elk_ec2.yml` file that provisions the AWS EC2 instance. It is designed with automation in mind. The easiest way to provision an EC2 instance is to use the AWS console. Head over to the `CloudFormation` resource and click on `Create stack`. There are two options of specifying a CloudFormation template:
+Under the aws folder exists an `elk_ec2.yml` file that provisions the AWS EC2 instance. The easiest way to provision an EC2 instance is to use the AWS console. Head over to the `CloudFormation` resource and click on `Create stack`. There are two options of specifying a CloudFormation template:
 
 - Amazon S3 URL: Upload the preferred version of the `elk_ec2.yml` file and just provide the object url of that file to CloudFormation.
 - Upload a template file: Allows the user to choose their version of `elk_ec2.yml` file from their local machine.
 
-For stack details, define the stack name however you choose :) 
+For stack details, define the stack name however you choose :)  
 Next, there are four parameters required to fill in, each serve a purpose to let the user define their inputs.
 
 - KeyName: This is the only component that the user must create on their own for their specific AWS account. The user must first define a EC2 keypair, and use that name for this parameter. This is the key that will be used to ssh to your instance.
