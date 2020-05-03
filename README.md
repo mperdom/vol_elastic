@@ -26,7 +26,7 @@ Under the aws folder exists an `elk_ec2.yml` file that provisions the AWS EC2 in
 - Amazon S3 URL: Upload the preferred version of the `elk_ec2.yml` file and just provide the object url of that file to CloudFormation.
 - Upload a template file: Allows the user to choose their version of `elk_ec2.yml` file from their local machine.
 
-For stack details, define the stack name however you choose :)  
+For stack details, define the stack name however you choose :)\
 Next, there are four parameters required to fill in, each serve a purpose to let the user define their inputs.
 
 - KeyName: This is the only component that the user must create on their own for their specific AWS account. The user must first define a EC2 keypair, and use that name for this parameter. This is the key that will be used to ssh to your instance.
