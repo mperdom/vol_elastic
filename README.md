@@ -6,15 +6,15 @@ Volatilty gives users the ability to ask for their output in a specific format s
 
 The aim of this project was to create an ElasticSearch renderer that can format volatility output to an ES format that can automatically export the results to ES. I then decided to create a Kibana dashboard to better visualize the results exported.
 
-The main focus of this will be on running this plugin in the cloud, however, if you wish to setup your local environment, refer to the following [ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html) and Kibana[https://www.elastic.co/guide/en/kibana/current/setup.html] guides.
+The main focus of this will be on running this plugin in the cloud, however, if you wish to setup your local environment, refer to the following [ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html) and [Kibana](https://www.elastic.co/guide/en/kibana/current/setup.html) guides.
 
 After being able to run this locally, I decided to automate the process of building up an Elastic stack leveraging AWS. I did this to test the renderer in a linux environment, and also to make it so that anyone can leverage the automation and run this renderer with minimal effort.
 
 Huge credit to Dolos Development for supplying the base of the code for the Volatility ES Renderer.
-Dolos Development repo can be found here: https://github.com/dolosdevelopment/volatility
+Dolos Development repo can be found [here](https://github.com/dolosdevelopment/volatility).
 
 ## AWS Automation
-This section will assume that the user has created their own AWS account. Of note, to the best of my knowledge, GMU has joined AWS Educate for quite a few years now, giving students a grant of $100 in AWS credits. feel free to read more on AWS Educate and join [here](https://aws.amazon.com/education/awseducate/) :) 
+This section will assume that the user has created their own AWS account. Of note, to the best of my knowledge, GMU has joined AWS Educate for quite a few years now, giving students a grant of $100 in AWS credits. Feel free to read more on AWS Educate and join [here](https://aws.amazon.com/education/awseducate/) :) 
 
 ### Create EC2 KeyPair
 Before beginning AWS deployment, a user must first create an EC2 keypair to ssh to any EC2 instance. To create a keypair, refer to AWS documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
