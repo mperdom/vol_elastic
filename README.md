@@ -14,7 +14,7 @@ Huge credit to Dolos Development for supplying the base of the code for the Vola
 Dolos Development repo can be found here: https://github.com/dolosdevelopment/volatility
 
 ## AWS Automation
-This section will assume that the user has created their own AWS account.
+This section will assume that the user has created their own AWS account. Of note, to the best of my knowledge, GMU has joined AWS Educate for quite a few years now, giving students a grant of $100 in AWS credits. feel free to read more on AWS Educate and join [here](https://aws.amazon.com/education/awseducate/) :) 
 
 ### Create EC2 KeyPair
 Before beginning AWS deployment, a user must first create an EC2 keypair to ssh to any EC2 instance. To create a keypair, refer to AWS documentation [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
