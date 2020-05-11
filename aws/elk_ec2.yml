@@ -86,10 +86,10 @@ Resources:
             pip install elasticsearch
             aws s3 cp s3://${S3BucketName}/ /home/ec2-user --recursive
             cd /home/ec2-user
-            git clone https://github.com/mperdom/vol_elastic.git
-            chmod 777 /home/ec2-user/volastic/volatility/vol.py
-            mv /home/ec2-user/vm.vmem /home/ec2-user/volastic/volatility/
-            chown -R ec2-user:ec2-user /home/ec2-user/volastic/volatility
+            git clone https://github.com/mperdom/vol_elastic.git git-volastic
+            chmod 777 /home/ec2-user/git-volastic/volastic/vol.py
+            mv /home/ec2-user/vm.vmem /home/ec2-user/git-volastic/volastic/
+            chown -R ec2-user:ec2-user /home/ec2-user/git-volastic/volastic/
             ln -sfn /usr/lib/jvm/jre-1.8.0-openjdk.x86_64 /etc/alternatives/jre
             export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
             wget -O /home/ec2-user/elasticsearch-7.6.2-x86_64.rpm https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-x86_64.rpm
@@ -102,7 +102,7 @@ Resources:
             service kibana start
             # Create a file to easily copy and paste example curl commands
             echo 'curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/home/ec2-user/cfrs772-test-demo.ndjson' > example_commands
-            echo 'volatility/vol.py -f "/home/ec2-user/volatility/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree' >> example_commands
+            echo '/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree' >> example_commands
             ### I found that rpm is easier and more reliable for automation, so I commented out the tar method ###
             #aws s3 cp s3://cfrs772-elk/elasticsearch-7.6.2-linux-x86_64.tar.gz /home/ec2-user
             #aws s3 cp s3://cfrs772-elk/kibana-7.6.2-linux-x86_64.tar.gz /home/ec2-user

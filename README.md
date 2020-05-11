@@ -6,7 +6,7 @@ Volatilty gives users the ability to ask for their output in a specific format s
 
 The aim of this project was to create an ElasticSearch renderer that can format volatility output to an ES format that can automatically export the results to ES. I then decided to create a Kibana dashboard to better visualize the results exported.
 
-The main focus of this will be on running this plugin in the cloud, however, if you wish to setup your local environment, refer to the following [ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html) and [Kibana](https://www.elastic.co/guide/en/kibana/current/setup.html) guides.
+The main focus will be running this plugin in the cloud, however, if you wish to setup your local environment, refer to the following [ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html) and [Kibana](https://www.elastic.co/guide/en/kibana/current/setup.html) guides.
 
 After being able to run this locally, I decided to automate the process of building up an Elastic stack leveraging AWS. I did this to test the renderer in a linux environment, and also to make it so that anyone can leverage the automation and run this renderer with minimal effort.
 
@@ -43,12 +43,17 @@ Review your stack details and then check the box that "Acknowledge(s) that AWS C
 ### Sit back and relax
 CloudFormation will begin to deploy your template, and will notify the user if there were any issues. Once everything completed successfully, the EC2 instance will take a few minutes to fully run the user data. Once completed, the instance will be running both ElasticSearch and Kibana
 
+To Login to the instance using your ec2 key pair, run the following command:
+```
+ssh -i [path-to-key] ec2-user@[public-DNS-name]
+```
+
 ### Import Kibana Dashboards
 This an optional step. With Kibana, a user has the ability to import existing dashboards that have been created. Kibana also allows for exporting dashbaords created. This is useful for dashboards that are created within AWS, allowing for dashboards to be saved externally (e.g. AWS S3 buckets). I've created some dashboards and stored them in my S3 bucket. The file is also stored under the `Kibana` folder in this repo. 
 
 Verify that Kibana is running on the instance with the following command:
 ```
-sudo service Kibana status
+sudo service kibana status
 ```
 
 To import your kibana dashboard, run the following command, replacing the file name as needed:
@@ -56,10 +61,15 @@ To import your kibana dashboard, run the following command, replacing the file n
 curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/home/ec2-user/cfrs772-test-demo.ndjson
 ```
 
+To view the UI of Kibana, you will have to ssh port-forward from another command prompt/terminal to get into your AWS VPC. As an example, run the following command from another cmd prompt/terminal:
+```
+ssh -i [path-to-keypair] -L 8080:localhost:5601 ec2-user@[public-DNS-name]
+```
+
 ## Running Volatility
 To run Volatility using the ES renderer, run the following command:
 ```
-/home/ec2-user/volastic/volatility/vol.py -f "/home/ec2-user/volatility/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree
+/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree
 ```
 
 ## Testing Volatility
