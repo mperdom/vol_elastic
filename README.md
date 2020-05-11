@@ -57,7 +57,7 @@ curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --fo
 ## Running Volatility
 To run Volatility using the ES renderer, run the following command:
 ```
-/home/ec2-user/volatility/vol.py -f "/home/ec2-user/volatility/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree
+/home/ec2-user/volastic/volatility/vol.py -f "/home/ec2-user/volatility/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree
 ```
 
 ## Testing Volatility
