@@ -6,6 +6,8 @@ Volatilty gives users the ability to ask for their output in a specific format s
 
 The aim of this project was to create an ElasticSearch renderer that can format volatility output to an ES format that can automatically export the results to ES. I then decided to create a Kibana dashboard to better visualize the results exported.
 
+The main focus of this will be on running this plugin in the cloud, however, if you wish to setup your local environment, refer to the following [ElasticSearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/setup.html) and Kibana[https://www.elastic.co/guide/en/kibana/current/setup.html] guides.
+
 After being able to run this locally, I decided to automate the process of building up an Elastic stack leveraging AWS. I did this to test the renderer in a linux environment, and also to make it so that anyone can leverage the automation and run this renderer with minimal effort.
 
 Huge credit to Dolos Development for supplying the base of the code for the Volatility ES Renderer.
