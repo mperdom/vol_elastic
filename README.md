@@ -72,7 +72,7 @@ All of the python code for the Elasticsearch renderer is under the `volastic` fo
 The additional parameters to specify for the ES renderer:\
 - "--output": This parameter can be used to specify the output of a plugin. In our case here, we'll specify elastic.
 - "--elastic-url": This parameter is the Elasticsearch url for the elastic renderer. We specify the localhost in our case.
-- "--index": This is an optional parameter. This defines the name of the index that will appear in Elasticsearch, by default this is `volatility`.
+- "--index": This is an optional parameter. This defines the name of the index that will appear in Elasticsearch, the default name is `volatility`.
 
 To run Volatility using the ES renderer, run the following command:
 ```
