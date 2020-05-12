@@ -86,7 +86,7 @@ thrdscan
 /home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" thrdscan
 ```
 
-## Deleting Stack
+## Deleting CFT Stack
 The instance runs on a m4.large, costing $0.10/hr. Very good when you just want to quickly spin up an instance and run your analysis. However, don't forget to delete your stack after you are done to enjoy paying for what you only use :)
 
 To delete your stack, hit the `CloudFormation` button in AWS, select your CFT stack, and hit the delete button. All the resources spun up by the CFT stack will automatically be terminated. 
