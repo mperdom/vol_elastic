@@ -1,8 +1,6 @@
 # Marco Perdomo
 # Final Project Code
 # Foundation code base taken from https://dolosdev.com/volatility-elasticsearch-renderer/
-# Will be taking more time to understand and recreate and have functional 
-# on the latest Elasticsearch 7.6
 
 from datetime import datetime
 # import the elasticsearch package
