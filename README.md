@@ -58,7 +58,7 @@ sudo service kibana status
 
 To import your kibana dashboard, run the following command, replacing the file name as needed:
 ```
-curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/home/ec2-user/cfrs772-test-demo.ndjson
+curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/home/ec2-user/cfrs772-demo.ndjson
 ```
 
 To view the UI of Kibana, you will have to ssh port-forward from another command prompt/terminal to get into your AWS VPC. As an example, run the following command from another cmd prompt/terminal:
@@ -69,11 +69,21 @@ ssh -i [path-to-keypair] -L 8080:localhost:5601 ec2-user@[public-DNS-name]
 ## Running Volatility
 To run Volatility using the ES renderer, run the following command:
 ```
-/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree
+/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=[profile] --output=elastic --elastic-url="http://127.0.0.1:9200" [plugin]
 ```
 
-## Testing Volatility
-
+Example commands:
+```
+pstree
+/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200 pstree
+```
+```
+thrdscan
+/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200 thrdscan
+```
+filescan
+/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200 filescan
+```
 
 
 

@@ -1,21 +1,4 @@
-# Volatility
-# Copyright (C) 2008-2015 Volatility Foundation
-#
-# This file is part of Volatility.
-#
-# Volatility is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# Volatility is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Volatility.  If not, see <http://www.gnu.org/licenses/>.
-#
+# This file replaces the current commands.py from volatility
 
 import os
 import sys
@@ -67,7 +50,7 @@ class Command(object):
         config.add_option("OUTPUT-FILE", default = None,
                           cache_invalidator = False,
                           help = "Write output in this file")
-
+        # the default location can be changed per use case of ES in the cloud. Most times will just be localhost
         config.add_option("ELASTIC-URL", default = 'http://localhost:9200',
                           cache_invalidator = False,
                           help = "Elasticsearch URL for the Elastic renderer")
@@ -313,7 +296,7 @@ class Command(object):
             debug.error(why)
         except TypeError, why:
             debug.error(why)
-
+    # calls the elastic search renderer
     def render_elastic(self, outfd, data):
         try:
             self._render(outfd, ElasticRenderer(self.__class__.__name__, self._config), data)
