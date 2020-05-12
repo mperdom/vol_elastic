@@ -23,7 +23,7 @@ Before beginning AWS deployment, a user must first create an EC2 keypair to ssh 
 Create an S3 bucket by following the AWS documentation [here](https://docs.aws.amazon.com/quickstarts/latest/s3backup/step-1-create-bucket.html). This will simply serve the purpose of storing your memory files and any other files that you'd like. Feel free to remove the dependency on S3 and use any external storage of your choice.
 
 ### Deploying - EC2 Instance
-![Elk Architecture](./ELK_Architecture.png)
+![Elk Architecture](https://github.com/mperdom4/vol_elastic/ELK_Architecture.png)
 Under the aws folder exists an `elk_ec2.yml` file that provisions the AWS EC2 instance. The easiest way to provision an EC2 instance is to use the AWS console. Head over to the `CloudFormation` resource and click on `Create stack`. There are two options of specifying a CloudFormation template:
 
 - Amazon S3 URL: Upload the preferred version of the `elk_ec2.yml` file and just provide the object url of that file to CloudFormation.
