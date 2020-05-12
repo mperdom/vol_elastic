@@ -1,4 +1,4 @@
-# This file replaces the current commands.py from volatility
+# This file replaces the current commands.py from volatility. Modifications were made to specify parameters when wanting to use the Elasticsearch Renderer.
 
 import os
 import sys
