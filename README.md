@@ -68,6 +68,12 @@ ssh -i [path-to-keypair] -L 8080:localhost:5601 ec2-user@[public-DNS-name]
 ```
 
 ## Running Volatility
+All of the python code for the Elasticsearch renderer is under the `volastic` folder. Under `/volatilty/renderers` exists a `elastic.py` file. This file defines the renderer and allows for output to be automatically sent to Elasticsearch. Under `/volatility` exists a `commands.py` file that has been slightly modified to accomodate specific elasticsearch parameters. 
+The additional parameters to specify for the ES renderer:
+- "--output": This parameter can be used to specify the output of a plugin. In our case here, we'll specify elastic.
+- "--elastic-url": This parameter is the Elasticsearch url for the elastic renderer. We specify the localhost in our case.
+- "--index": This is an optional parameter. This defines the name of the index that will appear in Elasticsearch, by default this is `volatility`.
+
 To run Volatility using the ES renderer, run the following command:
 ```
 /home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=[profile] --output=elastic --elastic-url="http://127.0.0.1:9200" [plugin]

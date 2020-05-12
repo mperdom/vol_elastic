@@ -1,5 +1,5 @@
 # Marco Perdomo
-# Final Project Alpha Code
+# Final Project Code
 # Foundation code base taken from https://dolosdev.com/volatility-elasticsearch-renderer/
 # Will be taking more time to understand and recreate and have functional 
 # on the latest Elasticsearch 7.6
@@ -23,6 +23,7 @@ class ElasticRenderer(Renderer):
     """
 
     def __init__(self, plugin_name, config):
+        # error out if Elasticsearch python client has not been installed
         if not Elasticsearch:
             debug.error("You must install the Elasticsearch python client" \
                     ":\n\thttps://pypi.org/project/elasticsearch/")
@@ -35,13 +36,14 @@ class ElasticRenderer(Renderer):
     def render(self, outfd, grid):
         self._es = Elasticsearch([self._config.ELASTIC_URL])
 
+        # multiple rows will be created for each output row that the plugin produces
         def _add_multiple_row(node, accumulator):
             row = node.values._asdict()
             if 'start' in row and row['start'][:-5] != '':
                 row['datetime'] = datetime.strptime(row['start'][:-5],"%Y-%m-%d %H:%M:%S %Z")
             else:
                 row['datetime'] = datetime.now()
-                
+            # define each plugin count as a row
             row['plugin'] = self._plugin_name
             accumulator.append({
                 '_index': self._config.INDEX,
@@ -49,12 +51,13 @@ class ElasticRenderer(Renderer):
                 '_id': uuid.uuid4().hex,
                 '_source': row
                 })
+            # if there are more than 500 counts of a plugin, handle them in bulks
             if len(accumulator) > 500:
                 helpers.bulk(self._es, accumulator)
                 accumulator = []
             self._accumulator = accumulator
             return accumulator
-
+        # populate the grid with each count of a plugin
         grid.populate(_add_multiple_row, self._accumulator)
 
         #Insert last nodes

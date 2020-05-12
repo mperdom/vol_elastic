@@ -54,7 +54,7 @@ class Command(object):
         config.add_option("ELASTIC-URL", default = 'http://localhost:9200',
                           cache_invalidator = False,
                           help = "Elasticsearch URL for the Elastic renderer")
-
+        # this creates the index 'volatility' in Elasticsearch, Kibana can then be used to create an index pattern 
         config.add_option("INDEX", default = 'volatility',
                           cache_invalidator = False,
                           help = "Elasticsearch index name for the Elastic renderer")
