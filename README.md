@@ -87,7 +87,7 @@ thrdscan
 ```
 
 ## Deleting CFT Stack
-The instance runs on a m4.large, costing $0.10/hr. Very good when you just want to quickly spin up an instance and run your analysis. However, don't forget to delete your stack after you are done to enjoy paying for what you only use :)
+The instance runs on a m4.large, costing $0.10/hr. Very good when you just want to quickly spin up an instance and run your analysis. However, don't forget to delete your stack after you are done to enjoy only paying for what you use :)
 
 To delete your stack, hit the `CloudFormation` button in AWS, select your CFT stack, and hit the delete button. All the resources spun up by the CFT stack will automatically be terminated. 
 
