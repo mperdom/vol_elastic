@@ -94,8 +94,10 @@ Resources:
             export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
             wget -O /home/ec2-user/elasticsearch-7.6.2-x86_64.rpm https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-x86_64.rpm
             wget -O /home/ec2-user/kibana-7.6.2-x86_64.rpm https://artifacts.elastic.co/downloads/kibana/kibana-7.6.2-x86_64.rpm
+            wget -O /home/ec2-user/logstash-7.8.0.rpm https://artifacts.elastic.co/downloads/logstash/logstash-7.8.0.rpm
             rpm --install elasticsearch-7.6.2-x86_64.rpm
             rpm --install kibana-7.6.2-x86_64.rpm
+            rpm --install logstash-7.8.0.rpm
             chkconfig --add elasticsearch
             chkconfig --add kibana
             service elasticsearch start
@@ -103,6 +105,7 @@ Resources:
             # Create a file to easily copy and paste example curl commands
             echo 'curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/home/ec2-user/cfrs772-demo.ndjson' > example_commands
             echo '/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree' >> example_commands
+            echo '/usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/test-simple.conf'>> example_commands
             ### I found that rpm is easier and more reliable for automation, so I commented out the tar method ###
             #aws s3 cp s3://cfrs772-elk/elasticsearch-7.6.2-linux-x86_64.tar.gz /home/ec2-user
             #aws s3 cp s3://cfrs772-elk/kibana-7.6.2-linux-x86_64.tar.gz /home/ec2-user
