@@ -67,6 +67,11 @@ To view the UI of Kibana, you will have to ssh port-forward from another command
 ssh -i [path-to-keypair] -L 8080:localhost:5601 ec2-user@[public-DNS-name]
 ```
 
+Then open a browser and go to the following url:
+```
+localhost:8080
+```
+
 ## Running Volatility
 All of the python code for the Elasticsearch renderer is under the `volastic` folder. Under `/volatilty/renderers` exists a `elastic.py` file. This file defines the renderer and allows for output to be automatically sent to Elasticsearch. Under `/volatility` exists a `commands.py` file that has been slightly modified to accomodate specific elasticsearch parameters. 
 The additional parameters to specify for the ES renderer:\

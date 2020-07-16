@@ -92,6 +92,7 @@ Resources:
             chown -R ec2-user:ec2-user /home/ec2-user/git-volastic/volastic/
             ln -sfn /usr/lib/jvm/jre-1.8.0-openjdk.x86_64 /etc/alternatives/jre
             export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
+            cp git-volastic/Kibana/cfrs763/cfrs763_first_runthrough.ndjson /home/ec2-user
             wget -O /home/ec2-user/elasticsearch-7.6.2-x86_64.rpm https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.6.2-x86_64.rpm
             wget -O /home/ec2-user/kibana-7.6.2-x86_64.rpm https://artifacts.elastic.co/downloads/kibana/kibana-7.6.2-x86_64.rpm
             wget -O /home/ec2-user/logstash-7.8.0.rpm https://artifacts.elastic.co/downloads/logstash/logstash-7.8.0.rpm
@@ -105,7 +106,8 @@ Resources:
             # Create a file to easily copy and paste example curl commands
             echo 'curl -X POST "localhost:5601/api/saved_objects/_import" -H "kbn-xsrf: true" --form file=@/home/ec2-user/cfrs772-demo.ndjson' > example_commands
             echo '/home/ec2-user/git-volastic/volastic/vol.py -f "/home/ec2-user/git-volastic/volastic/vm.vmem" --profile=WinXPSP2x86 --output=elastic --elastic-url="http://127.0.0.1:9200" pstree' >> example_commands
-            echo '/usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/test-simple.conf' >> example_commands
+            echo '/usr/share/logstash/bin/logstash -f /home/ec2-user/git-volastic/Logstash/registry_configs/linux/reg_system.conf' >> example_commands
+            echo '/usr/share/logstash/bin/logstash -f /home/ec2-user/git-volastic/Logstash/eventlog_configs/linux/windows_app_event.conf' >> example_commands
             ### I found that rpm is easier and more reliable for automation, so I commented out the tar method ###
             #aws s3 cp s3://cfrs772-elk/elasticsearch-7.6.2-linux-x86_64.tar.gz /home/ec2-user
             #aws s3 cp s3://cfrs772-elk/kibana-7.6.2-linux-x86_64.tar.gz /home/ec2-user
