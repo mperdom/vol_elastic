@@ -1,6 +1,8 @@
 # VOL-ASTIC
 Volatility integrated with ElasticSearch(ES) and Kibana in an AWS environment
 
+Click [here](https://github.com/mperdom/vol_elastic/blob/master/docs/Ntfswalk_Timeline_Analysis.md) to go to the documentation for the ntfswalk_analysis (Once I have more time, I will separate these two projects into their own separate repositories)
+
 ## Overview/How it works
 Volatilty gives users the ability to ask for their output in a specific format such as text, json, html, etc. This unified output concept allows for users to run plugins and output the results how they see fit. Examples of existing renderers and their outputs can be found on their volatility wiki found [here](https://github.com/volatilityfoundation/volatility/wiki/Unified-Output).
 

@@ -1,7 +1,7 @@
 # Ntfswalk Time Analysis Documentation
 
 ## Commands to push data to Elasticsearch
-There are six files I used to push data to Elasticsearch. The following six commands correspond to ingesting those files to ES:
+There are six files I used to push data to Elasticsearch on the linux systems brought up by AWS. The following six linux commands correspond to ingesting those files to ES:
 
 Windows app event logs
 ```
