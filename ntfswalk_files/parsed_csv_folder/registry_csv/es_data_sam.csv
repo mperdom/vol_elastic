@@ -1,0 +1,6 @@
+﻿file.name,registry.hive,registry.key,registry.path,registry.data.type,username,accont_created,last_login_date
+2008_01_30_1341_09_421_34d47dec343e3acfa8e63ac081fe904f_sam,SAM,Domains\Account\Users\000003EC,Domains\Account\Users\000003EC\V,RegBinary,Caster Troy [1004],Null,Null
+2008_01_30_1409_49_703_2d0e4d3806c6ab90e43cbee0174265e7__REGISTRY_MACHINE_SAM,SAM,Domains\Account\Users\000003EC,Domains\Account\Users\000003EC\V,RegBinary,Caster Troy [1004],2008-01-31 04:32:17Z,2008-01-30 14:03:42Z
+2008_01_30_1451_23_562_ef8c084ce18c7b9ecbcf335e981d4b40_SAM,SAM,Domains\Account\Users\000003EC,Domains\Account\Users\000003EC\V,RegBinary,Caster Troy [1004],2008-01-31 04:32:17Z,2008-01-30 14:47:05Z
+2008_01_31_0433_10_605_3f37e4d578778bd4dfad61ae2627d881__REGISTRY_MACHINE_SAM,SAM,Domains\Account\Users\000003EC,Domains\Account\Users\000003EC\V,RegBinary,Caster Troy [1004],2008-01-31 04:32:17Z,2008-01-31 04:32:20Z
+2008_01_31_0443_38_390_2722deb950c8667bb2b24dd33a6c866b__REGISTRY_MACHINE_SAM,SAM,Domains\Account\Users\000003EC,Domains\Account\Users\000003EC\V,RegBinary,Caster Troy [1004],2008-01-31 04:32:17Z,2008-01-31 04:34:45Z

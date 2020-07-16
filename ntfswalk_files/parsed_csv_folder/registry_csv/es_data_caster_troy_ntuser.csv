@@ -1,0 +1,6 @@
+﻿file.name,registry.hive,registry.key,registry.path,registry.value,last_write_time
+2008_01_30_1451_20_515_ea09ed13af1342c6ae345edd39cb5f89_NTUSER.DAT,NTUSER,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedMRU,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedMRU\MRULIST,a,2008-01-30 14:27:47Z
+2008_01_30_1451_20_515_ea09ed13af1342c6ae345edd39cb5f89_NTUSER.DAT,NTUSER,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU\*,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU\*\a,E:\secret3.zip,2008-01-30 14:28:02Z
+2008_01_30_1451_20_515_ea09ed13af1342c6ae345edd39cb5f89_NTUSER.DAT,NTUSER,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU\*,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU\*\MRUList,cba,2008-01-30 14:28:02Z
+2008_01_30_1451_20_515_ea09ed13af1342c6ae345edd39cb5f89_NTUSER.DAT,NTUSER,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU\*,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU\*\b,E:\secret4.zip,2008-01-30 14:28:02Z
+2008_01_30_1451_20_515_ea09ed13af1342c6ae345edd39cb5f89_NTUSER.DAT,NTUSER,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU\*,Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSaveMRU\*\c,E:\secret5.zip,2008-01-30 14:28:02Z
