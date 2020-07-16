@@ -1,7 +1,8 @@
 # Ntfswalk Time Analysis Documentation
+Follow the inital Volastic ReadMe documentation for setting up the AWS environment, up until "Running Volatility", then follow the rest of the document here.
 
 ## Commands to push data to Elasticsearch
-There are six files I used to push data to Elasticsearch on the linux systems brought up by AWS. The following six linux commands correspond to ingesting those files to ES:
+There are six files used to push data to Elasticsearch on the linux systems brought up by AWS. The following six linux commands correspond to ingesting those files to ES:
 
 Windows app event logs
 ```
